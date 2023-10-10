@@ -1,21 +1,9 @@
 import express from 'express';
-//import { createServer } from 'https';
-import { createServer } from 'https';
+import { createServer } from 'http';
 import 'dotenv/config'
-import { Server, ServerOptions, Socket } from "socket.io";
+import { Server, Socket } from "socket.io";
 import { ExtendedError } from 'socket.io/dist/namespace';
-//import * as fs from 'fs';
 import cors from 'cors';
-
-const certPath = process.env.CERT_PATH ? process.env.CERT_PATH : ""
-const keyPath = process.env.KEY_PATH ? process.env.KEY_PATH : ""
-const options = {
-    //key: fs.readFileSync(keyPath, 'utf8'),
-   // cert: fs.readFileSync(certPath, 'utf8'),
-    //requestCert: true,
-    //rejectUnauthorized: false, //per evitare errore su self signed certificate. VA USATA SOLO IN DEVELOPMENT
-    //allowHTTP1: true
-}
 
 const app = express();
 
@@ -24,8 +12,6 @@ app.use(cors());
 app.get('/', (req, res) => {
     res.send("Hello World")
 })
-
-//const server = createServer(options, app);
 const server = createServer(app);
 
 //Socket.IO Server
