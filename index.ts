@@ -1,6 +1,6 @@
 import express from 'express';
 //import { createServer } from 'https';
-import { createServer } from 'http';
+import { createServer } from 'https';
 import 'dotenv/config'
 import { Server, ServerOptions, Socket } from "socket.io";
 import { ExtendedError } from 'socket.io/dist/namespace';
